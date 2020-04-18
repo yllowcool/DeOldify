@@ -1,12 +1,14 @@
 from fastai.vision import *
 from fastai.vision.learner import cnn_config
+from efficientnet_pytorch import EfficientNet
 from .unet import DynamicUnetWide, DynamicUnetDeep
 from .loss import FeatureLoss
 from .dataset import *
 
 # Weights are implicitly read from ./models/ folder
+effnetmodel = EfficientNet.from_name('efficientnet-b7')
 def gen_inference_wide(
-    root_folder: Path, weights_name: str, nf_factor: int = 2, arch=models.EfficientNetB7) -> Learner:
+    root_folder: Path, weights_name: str, nf_factor: int = 2, arch=effnetmodel) -> Learner:
     data = get_dummy_databunch()
     learn = gen_learner_wide(
         data=data, gen_loss=F.l1_loss, nf_factor=nf_factor, arch=arch
@@ -18,7 +20,7 @@ def gen_inference_wide(
 
 
 def gen_learner_wide(
-    data: ImageDataBunch, gen_loss, arch=models.EfficientNetB7, nf_factor: int = 2
+    data: ImageDataBunch, gen_loss, arch=effnetmodel, nf_factor: int = 2
 ) -> Learner:
     return unet_learner_wide(
         data,
