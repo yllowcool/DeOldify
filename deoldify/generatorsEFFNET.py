@@ -6,9 +6,9 @@ from .loss import FeatureLoss
 from .dataset import *
 
 # Weights are implicitly read from ./models/ folder
-effnetmodel = EfficientNet.from_name('efficientnet-b7')
+model_effnetb7 = EfficientNet.from_pretrained('efficientnet-b7')
 def gen_inference_wide(
-    root_folder: Path, weights_name: str, nf_factor: int = 2, arch=effnetmodel) -> Learner:
+    root_folder: Path, weights_name: str, nf_factor: int = 2, arch=model_effnetb7) -> Learner:
     data = get_dummy_databunch()
     learn = gen_learner_wide(
         data=data, gen_loss=F.l1_loss, nf_factor=nf_factor, arch=arch
@@ -20,7 +20,7 @@ def gen_inference_wide(
 
 
 def gen_learner_wide(
-    data: ImageDataBunch, gen_loss, arch=effnetmodel, nf_factor: int = 2
+    data: ImageDataBunch, gen_loss, arch=model_effnetb7, nf_factor: int = 2
 ) -> Learner:
     return unet_learner_wide(
         data,
