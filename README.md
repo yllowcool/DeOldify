@@ -5,7 +5,7 @@
 ## PRELIMINARY MODEL (16-20 June) ##
 ## Notes for training of colourizer model- (ColorizeTrainingStableLargeBatch.ipynb) ##
 **Inspiration** of model training using **SG local images** instead of the usual IMAGENET dataset to generate output colours as close as possible to our local sights and environments; came from [ColouriseSG](https://colourise.sg/) done by SG GovTech team [last year early February 2019](https://blog.data.gov.sg/bringing-black-and-white-photos-to-life-using-colourise-sg-435ae5cc5036) (click to read their blog).
--  Prototype training done with 425 training images downloaded off from **Flickr** site publicly available photos (allowed download with Creative Commons license only) 
+- Prototype training done with 425 training images downloaded off from **Flickr** site publicly available photos (allowed download with Creative Commons license only) 
 - Quick download from Flickr made easier using [Flickr Fast Downloader tool](http://flickrdownloader.laboone.net/). Searching for "singapore" terms to cover representation of streets and people of Singapore, nature environment context, building structures and colours etc. 
 - Training dataset split (75% train 25% validation)- train folder: 326 images, val folder: 99 images. 
 - Used **POWER8 machine S822lc**, Nvidia GPU P100 16GB RAM, total CPU RAM at 512GB, no direct server connection, using IBM VPN, ssh remote
