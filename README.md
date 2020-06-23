@@ -19,8 +19,20 @@
 
 
 ## Notes for inferencing- (ImageColorizerStableTests.ipynb) ##
-- obtained black & white images from [SG Photos (NLB archive)](https://eresources.nlb.gov.sg/pictures)
+- obtained black & white images from [PictureSG (NLB archive)](https://eresources.nlb.gov.sg/pictures)
 - loaded in the saved GAN model checkpoint at cycle 1. 
 - Tested B&W image include - old streets of SG ok, old NDP parades - still room for improvement, portraits of famous personalities in SG - not so good compared to the former two -> **can be solved by having a larger, more representative training dataset**
 - render factor(rf) plays a part in the final output of the predicted image too (also limited by GPU RAM), 
 - too high value of rf also causes glitches, colour spills, streaks
+
+## Preliminary Results ##
+A picture of Amber Road in 1992![Compare_Results_AmberRoad_rf45](https://user-images.githubusercontent.com/52671563/85354369-fe758000-b53c-11ea-8035-0659c183781f.png) 
+Opening ceremony of Queenstown Branch Library on 30 April 1970, by the First Prime Minister of Singapore, Mr Lee Kuan Yew![Compare_Results_LKY1970](https://user-images.githubusercontent.com/52671563/85354420-1816c780-b53d-11ea-9171-5d1636da50c2.png)
+Mr Lee Kuan Yew, Prime Minister, arriving at the Library![Compare_Results_LKY1970_1](https://user-images.githubusercontent.com/52671563/85354424-19e08b00-b53d-11ea-81d0-76b2eb748ef9.png)
+National Day Parade in 1969 held at the Padang![Compare_Results_NationalDayParade1969_1](https://user-images.githubusercontent.com/52671563/85354429-1f3dd580-b53d-11ea-848e-a50627013d94.png)
+Mobile Column in National Day Parade 1969 held at the Padang![Compare_Results_NationalDayParade1969_rf32](https://user-images.githubusercontent.com/52671563/85355786-f9fe9680-b53f-11ea-994d-273e9e17deb7.png)
+1983 photograph showing the exterior of a house, located at no. 51 Neil Road (opposite Kreta Ayer Road)![Compare_Results_NeilRoad_rf10](https://user-images.githubusercontent.com/52671563/85354500-498f9300-b53d-11ea-8159-d572a302c691.png)
+Mr S. Rajaratname, Minster of Culture, giving a speech at the opening of an exhibition at the library![Compare_Results_S_Rajaratnam1960](https://user-images.githubusercontent.com/52671563/85354504-4d231a00-b53d-11ea-9431-709072ca9fa8.png)
+1982 photograph showing Maghain Aboth Synagogue, located at Waterloo Street![Compare_Results_WaterlooStreet_rf64](https://user-images.githubusercontent.com/52671563/85354509-501e0a80-b53d-11ea-834c-feb035b6a528.png)
+Mr. Yusof Ishak, Head of State, at the library, est. 1950-1960![Compare_Results_YusofIshak1950](https://user-images.githubusercontent.com/52671563/85354513-52806480-b53d-11ea-86d9-7176686ce7c7.png)
+*Only a small sample of images are used for demo purposes only © All Rights Reserved to NLB DIGITAL LIBRARY*
