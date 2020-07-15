@@ -4,12 +4,12 @@ from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from .filters import IFilter, MasterFilter, ColorizerFilter
-from .generators import gen_inference_deep, gen_inference_wide
+from .generatorsResNet152 import gen_inference_deep, gen_inference_wide
 from tensorboardX import SummaryWriter
 from scipy import misc
 from PIL import Image
-import ffmpeg
-import youtube_dl
+# import ffmpeg
+# import youtube_dl
 import gc
 import requests
 from io import BytesIO
