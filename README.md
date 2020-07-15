@@ -37,7 +37,7 @@ Mr S. Rajaratname, Minster of Culture, giving a speech at the opening of an exhi
 Mr. Yusof Ishak, Head of State, at the library, est. 1950-1960![Compare_Results_YusofIshak1950](https://user-images.githubusercontent.com/52671563/85354513-52806480-b53d-11ea-86d9-7176686ce7c7.png)
 *Only a small sample of images are used for demo purposes only © All Rights Reserved to NLB DIGITAL LIBRARY*
 
-## SECOND DEVTEST RUN (15 July) ##
+## SECOND DEVTEST RUN (15 July) (see ColorizeTrainingStableLargeBatchLMS.ipynb) ##
 - Done on bigger machine POWER9 AC922, making use of larger GPU RAM of 32GB with 1x NVIDIA Tesla V100 GPU 32GB RAM only
 - Imageset increased to 1000 images (750 train, 250 val)
 - Training using ResNet512 backend, more depth, better perfomance results as compared to ResNet101 
