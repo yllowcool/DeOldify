@@ -42,7 +42,7 @@ def get_colorize_data(
 
 
 def get_dummy_databunch() -> ImageDataBunch:
-    path = Path('/home/yeelee/datasets/sample/train')
+    path = Path('/home/cecuser/imageset/train')
     return get_colorize_data(
         sz=1, bs=1, crappy_path=path, good_path=path, keep_pct=0.001
     )
