@@ -36,3 +36,27 @@ Mr S. Rajaratname, Minster of Culture, giving a speech at the opening of an exhi
 1982 photograph showing Maghain Aboth Synagogue, located at Waterloo Street![Compare_Results_WaterlooStreet_rf64](https://user-images.githubusercontent.com/52671563/85354509-501e0a80-b53d-11ea-834c-feb035b6a528.png)
 Mr. Yusof Ishak, Head of State, at the library, est. 1950-1960![Compare_Results_YusofIshak1950](https://user-images.githubusercontent.com/52671563/85354513-52806480-b53d-11ea-86d9-7176686ce7c7.png)
 *Only a small sample of images are used for demo purposes only © All Rights Reserved to NLB DIGITAL LIBRARY*
+
+## SECOND DEVTEST RUN (15 July) ##
+- Done on bigger machine POWER9 AC922, making use of larger GPU RAM of 32GB with 1x NVIDIA Tesla V100 GPU 32GB RAM only
+- Imageset increased to 1000 images (750 train, 250 val)
+- Training using ResNet512 backend, more depth, better perfomance results as compared to ResNet101 
+- Training resolution increased up to 512px without OOM crashing out
+### Conda Installation :
+#### Make sure that IBM repo for WML-CE packages are in the conda channel priority list >> ####  
+$ conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/  
+$ conda create -n colorproj python=3.6  
+$ conda activate colorproj
+#### Activate the specially defined environment and do the conda install all together at once for Fastai, Pytorch, Torchvision to prevent version conflicts and to have Pytorch-LMS enabled #### 
+$ conda install -c fastai -c powerai fastai pytorch torchvision // if can't install set -> conda config --set channel_priority false
+#### Tensorflow is needed by Tensorboard in the training code ####
+$ conda install tensorflow tensorflow-gpu
+#### You can choose to use JupyterLab (preferred for better workflow) or Jupyter Notebook is the same ####
+$ conda install -c conda-forge jupyterlab nodejs
+#### Install jupyterlab extension widgets required for download bar indicator (only required for JupyterLab). ####
+$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
+### README before inferencing (ImageColorizerStableTests.ipynb) : ###
+1. When running inferencing 'colourizer' notebook, there will be an "no such dummy path" error when calling the vis function - thus you need to point to an image directory to circumvent that i.e. edit the file in **~/DeOldify/deoldify/dataset.py**: Line 45: path = Path('/home/cecuser/imageset/train')
+2. If saved model used is generated from ResNet152 backend, then there is a need to point to the ResNet152 script in visualize.py. Change the file in **~/DeOldify/deoldify/visualize.py** : Line 7: from .generatorsResNet152 import gen_inference_deep, gen_inference_wide // or any other respective model i.e generatorsEFFNET if using EfficientNet backend
+3. If colorizer is to be performed only on images and no videos are involved, you can comment out the lines that import 'ffmpeg' and 'youtube_dl' to save installation time: **~/DeOldify/deoldify/visualize.py** : Line 11: # import ffmpeg and Line 12: # import youtube_dl
+4. You can remove the watermark function in **visualize.py line 31** to get rid of the small palette image created by the original author.
